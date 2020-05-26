@@ -1,15 +1,27 @@
 <form [formGroup]="formData"
       (submit)="formSubmit.emit(formData.value)">
-  <input
-    formControlName="email"
-    type="email" name="email"
-    required minlength="5"
-    placeholder="Your email">
-  <input
-    formControlName="password"
-    type="password" name="password"
-    required
-    placeholder="Your password">
+  <h3>Connexion</h3>
+  <div class="form_group">
+    <label>
+      <span>Email</span>
+      <input
+        formControlName="email"
+        type="email" name="email"
+        required minlength="5"
+        placeholder="Your email">
+    </label>
+  </div>
+
+  <div class="form_group">
+    <label>
+      <span>Mot de passe</span>
+      <input
+        formControlName="password"
+        type="password" name="password"
+        required
+        placeholder="Your password">
+    </label>
+  </div>
 
   <button [disabled]="!formData.valid" type="submit">Connexion</button>
 </form>

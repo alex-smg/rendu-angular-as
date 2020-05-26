@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+input {
+  padding: 8px 15px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #3F3F3F;
+}
+
+
+
+.containerLoginRegister {
+  display: flex;
+  justify-content: space-between;
+  form {
+    margin: auto;
+    .form_group {
+      width: 100%;
+      label {
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
