@@ -1,0 +1,11 @@
+<form
+  [formGroup]="formData"
+  (submit)="formSubmit.emit(formData.value)">
+  <input formControlName="search" type="source" name="source" placeholder="Rechercher">
+  <select formControlName="source" type="source" name="source" required>
+    <option value="">Selectionner une source</option>
+    <option value="{{source.id}}"  *ngFor="let source of sources">{{source.name}}</option>
+  </select>
+  <button *ngIf="readLocalStorageValue() === true" (click)="addFav($event)">Ajouter au favoris</button>
+  <button [disabled]="!formData.valid" type="submit">Rechercher</button>
+</form>

@@ -1,0 +1,9 @@
+<form
+[formGroup]="formData" (submit)="formSubmit.emit(formData.value)">
+  <input formControlName="email" type="email" name="email" required placeholder="Your Email">
+  <input formControlName="password" type="password" name="password" required placeholder="Your password">
+  <input formControlName="firstname" type="firstname" name="firstname" required placeholder="Your firstname">
+  <input formControlName="lastname" type="lastname" name="lastname" required placeholder="Your lastname">
+
+  <button [disabled]="!formData.valid" type="submit">Register</button>
+</form>

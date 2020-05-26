@@ -1,0 +1,12 @@
+<h3>Ma liste de favoris</h3>
+
+<form>
+  <ul>
+    <li *ngFor=" let bookmark of listOfBookmark">
+      <button (click)="getArticle(bookmark.id)" >{{bookmark.name}}</button>
+      <button (click)="removeFav(bookmark._id)">X</button>
+    </li>
+  </ul>
+</form>
+
+<app-result-articles></app-result-articles>
