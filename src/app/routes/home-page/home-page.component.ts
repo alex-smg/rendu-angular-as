@@ -32,7 +32,6 @@ export class HomePageComponent implements OnInit {
   }
 
   public getUserInfo = (event) => {
-    // Use CrudService to get user infos
     this.CrudService.login('users', event)
       .then( response => {
         console.log('SUCCES request', response);
@@ -42,6 +41,7 @@ export class HomePageComponent implements OnInit {
         console.log('ERROR request', error);
       });
   }
+
   public registerUser = (event) => {
     console.log(event);
     this.CrudService.createUser('users', event)
@@ -52,6 +52,7 @@ export class HomePageComponent implements OnInit {
         console.log('ERROR request', error);
       });
   }
+
   public search = (event) => {
     if (!event.search || event.search === '') {
       console.log('without search');

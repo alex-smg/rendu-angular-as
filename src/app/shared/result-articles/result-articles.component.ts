@@ -15,7 +15,6 @@ export class ResultArticlesComponent implements OnInit {
     // tslint:disable-next-line:no-shadowed-variable
     private ObservablesService: ObservablesService
   ){
-    // Get user data observer
     this.ObservablesService.getResultArticle().subscribe( articlesObserver => {
       if (articlesObserver === null) { this.resultSearch = null; }
       else{ this.resultSearch = articlesObserver; }

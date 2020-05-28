@@ -6,7 +6,8 @@
           </div>
           <div>
             <h3>{{result.title}}</h3>
-            <p>{{result.description}}</p>
+            <p>{{
+                result.description.length > 60 ? result.description.substr(0, 60) + '...' : result.description }}</p>
             <a [href]="result.url">Accéder à l'article</a>
           </div>
       </li>

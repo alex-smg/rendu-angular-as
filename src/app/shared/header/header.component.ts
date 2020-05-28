@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
     // tslint:disable-next-line:no-shadowed-variable
     private ObservablesService: ObservablesService
   ){
-    // Get user data observer
     this.ObservablesService.getUserInfo().subscribe( userDataObserver => {
       if (userDataObserver === null) { this.userData = null; }
       else{ this.userData = userDataObserver; }

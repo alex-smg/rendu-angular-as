@@ -29,28 +29,24 @@ export class CrudService {
     // Switch endpoint to set observable value
     switch (endpoint){
       case 'users':
-        // Set user info obserrbale value
         this.ObservablesService.setObservableData('user', apiResponse);
 
         // Return data
         return apiResponse || {};
         break;
       case 'sources':
-        // Set user info obserrbale value
         this.ObservablesService.setObservableData('source', apiResponse);
 
         // Return data
         return apiResponse || {};
         break;
       case 'logout':
-        // Set user info obserrbale value
         this.ObservablesService.setObservableData('logout', apiResponse);
 
         // Return data
         return apiResponse || {};
         break;
       case 'articles':
-        // Set user info obserrbale value
         this.ObservablesService.setObservableData('articles', apiResponse);
 
         // Return data
@@ -65,30 +61,30 @@ export class CrudService {
 
   // Get the API error
   private handleError = (apiError: any) => Promise.reject(apiError.error);
-  //
+
+
   // LOGIN
   public login(endpoint: string, credentials: any): Promise<any>{
-    // Set header
     const myHeader = new HttpHeaders();
     myHeader.append('Content-Type', 'application/json');
-
-    // Launch request
     return this.HttpClient.post(`${environment.apiUrl}/login`, credentials, { headers: myHeader })
-      .toPromise().then(data => this.getData(endpoint, data)).catch(this.handleError);
+      .toPromise()
+      .then(data => this.getData(endpoint, data))
+      .catch(this.handleError);
   }
 
   // ME
   public getBookMarks(endpoint: string): Promise<any>{
-    // Set header
     const myHeader = new HttpHeaders();
     myHeader.append('Content-Type', 'application/json');
     const token = {
       token: localStorage.token
     };
-    // Launch request
     if (localStorage.token) {
       return this.HttpClient.post(`${environment.apiUrl}/me`, token , { headers: myHeader })
-        .toPromise().then(data => this.getData(endpoint, data)).catch(this.handleError);
+        .toPromise()
+        .then(data => this.getData(endpoint, data))
+        .catch(this.handleError);
     } else {
       alert('vous n etes pas connecté');
     }
@@ -96,13 +92,13 @@ export class CrudService {
 
   // Create USER
   public createUser(endpoint: string, data: any): Promise<any>{
-    // Set header
     const myHeader = new HttpHeaders();
     myHeader.append('Content-Type', 'application/json');
 
-    // Launch request
     return this.HttpClient.post(`${environment.apiUrl}/register`, data, { headers: myHeader })
-      .toPromise().then(this.getData(endpoint, data)).catch(this.handleError);
+      .toPromise()
+      .then(this.getData(endpoint, data))
+      .catch(this.handleError);
   }
 
   // Get All sources
@@ -111,54 +107,57 @@ export class CrudService {
       news_api_token: environment.token,
     };
     return this.HttpClient.post(`${environment.apiUrl}/news/sources`, body)
-      .toPromise().then( data => this.getData(endpoint, data)).catch(this.handleError);
+      .toPromise()
+      .then( data => this.getData(endpoint, data))
+      .catch(this.handleError);
   }
 
   public logout(endpoint: string): Promise<any>{
     console.log(endpoint);
     return this.HttpClient.get(`${environment.apiUrl}/logout`)
-      .toPromise().then(this.getData(endpoint, '')).catch(this.handleError);
+      .toPromise()
+      .then(this.getData(endpoint, ''))
+      .catch(this.handleError);
   }
 
   // Search width keywords
   public searchWithKeyword(endpoint: string, search: any): Promise<any>{
-    // Set header
     const myHeader = new HttpHeaders();
     myHeader.append('Content-Type', 'application/json');
     const body = {
       news_api_token: environment.token,
     };
-    // Launch request
     return this.HttpClient.post(`${environment.apiUrl}/news/${search.source}/${search.search}`, body, { headers: myHeader })
-      .toPromise().then(data => this.getData(endpoint, data)).catch(this.handleError);
+      .toPromise()
+      .then(data => this.getData(endpoint, data))
+      .catch(this.handleError);
   }
 
   // Search without keywords
   public search(endpoint: string, source: any): Promise<any>{
-    // Set header
     const myHeader = new HttpHeaders();
     myHeader.append('Content-Type', 'application/json');
     const body = {
       news_api_token: environment.token,
     };
-    // Launch request
     return this.HttpClient.post(`${environment.apiUrl}/news/${source}/null`, body, { headers: myHeader })
-      .toPromise().then(data => this.getData(endpoint, data)).catch(this.handleError);
+      .toPromise()
+      .then(data => this.getData(endpoint, data))
+      .catch(this.handleError);
   }
 
 
   public addFav(endpoint: string, dataSource: any): Promise<any>{
-    // Set header
     const myHeader = new HttpHeaders();
     myHeader.append('Content-Type', 'application/json');
-    // Launch request
     return this.HttpClient.post(`${environment.apiUrl}/bookmark`, dataSource, { headers: myHeader })
-      .toPromise().then(data => this.getData(endpoint, data)).catch(this.handleError);
+      .toPromise()
+      .then(data => this.getData(endpoint, data))
+      .catch(this.handleError);
   }
 
   // DELETE FAV
   public removeFav(id: any): Promise<any>{
-    // Launch request
     const myHeader = new HttpHeaders();
     myHeader.append('Content-Type', 'application/json');
     const token = {
@@ -166,7 +165,9 @@ export class CrudService {
     };
     // @ts-ignore
     return this.HttpClient.delete(`${environment.apiUrl}/bookmark/${id}` , { body: token })
-      .toPromise().then().catch(this.handleError);
+      .toPromise()
+      .then()
+      .catch(this.handleError);
   }
 }
 //

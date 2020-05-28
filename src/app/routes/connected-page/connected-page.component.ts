@@ -55,5 +55,4 @@ export class ConnectedPageComponent implements OnInit {
   ngOnInit(): void {
     this.getListFav();
   }
-
 }
