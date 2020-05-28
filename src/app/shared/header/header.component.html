@@ -1,3 +1,7 @@
-<a [routerLink]="'/'">Home</a>
-<a [routerLink]="'/profil'" *ngIf="readLocalStorageValue() === true" [innerText]="getLocalStorage()"></a>
-<button *ngIf="readLocalStorageValue() === true" (click)="logout()">Déconnexion</button>
+<nav>
+  <div>
+    <a [routerLink]="'/'">Home</a>
+    <a [routerLink]="'/profil'" *ngIf="readLocalStorageValue() === true" [innerText]="getLocalStorage()"></a>
+    <button class="btn-primary btn-logout" *ngIf="readLocalStorageValue() === true" (click)="logout()">Déconnexion</button>
+  </div>
+</nav>

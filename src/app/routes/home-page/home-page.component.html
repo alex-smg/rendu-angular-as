@@ -1,10 +1,10 @@
 <div>
   <div class="containerLoginRegister">
-    <app-form-login *ngIf="readLocalStorageValue() !== true" (formSubmit)="getUserInfo($event)"></app-form-login>
-    <app-form-register *ngIf="readLocalStorageValue() !== true" (formSubmit)="registerUser($event)"></app-form-register>
+    <app-form-login class="form" *ngIf="readLocalStorageValue() !== true" (formSubmit)="getUserInfo($event)"></app-form-login>
+    <app-form-register class="form" *ngIf="readLocalStorageValue() !== true" (formSubmit)="registerUser($event)"></app-form-register>
   </div>
 
-  <app-search-article (formSubmit)="search($event)"></app-search-article>
+  <app-search-article class="search-article" (formSubmit)="search($event)"></app-search-article>
   <app-result-articles></app-result-articles>
 </div>
 

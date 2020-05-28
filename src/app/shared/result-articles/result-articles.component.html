@@ -1,13 +1,14 @@
-<div>
+<div class="result-article">
     <ul>
       <li *ngFor="let result of resultSearch">
-        <div>
-          <div><img [src]='result.urlToImage'></div>
+          <div>
+            <img [src]='result.urlToImage'>
+          </div>
           <div>
             <h3>{{result.title}}</h3>
             <p>{{result.description}}</p>
+            <a [href]="result.url">Accéder à l'article</a>
           </div>
-        </div>
       </li>
     </ul>
 </div>

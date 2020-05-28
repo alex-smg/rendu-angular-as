@@ -6,6 +6,6 @@
     <option value="">Selectionner une source</option>
     <option value="{{source.id}}"  *ngFor="let source of sources">{{source.name}}</option>
   </select>
-  <button *ngIf="readLocalStorageValue() === true" (click)="addFav($event)">Ajouter au favoris</button>
-  <button [disabled]="!formData.valid" type="submit">Rechercher</button>
+  <button class="btn-secondary" *ngIf="readLocalStorageValue() === true" (click)="addFav($event)">Ajouter au favoris</button>
+  <button class="btn-primary" [disabled]="!formData.valid" type="submit">Rechercher</button>
 </form>
